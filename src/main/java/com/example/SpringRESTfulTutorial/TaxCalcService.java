@@ -1,4 +1,4 @@
-package com.example.SpringRESTfulTurorials;
+package com.example.SpringRESTfulTutorial;
 
 import java.util.concurrent.atomic.AtomicLong;
 

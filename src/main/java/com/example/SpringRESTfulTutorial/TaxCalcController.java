@@ -1,4 +1,4 @@
-package com.example.SpringRESTfulTurorials;
+package com.example.SpringRESTfulTutorial;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

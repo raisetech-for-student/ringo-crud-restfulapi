@@ -1,4 +1,4 @@
-package com.example.SpringRESTfulTurorials;
+package com.example.SpringRESTfulTutorial;
 
 /**
  * 税込計算のBeanクラス
