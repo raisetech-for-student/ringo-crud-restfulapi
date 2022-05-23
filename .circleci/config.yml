@@ -1,5 +1,5 @@
 executors:
-  java11: 
+  j11: 
     docker:
       - image: cimg/openjdk:11.0
 orbs:
@@ -10,4 +10,4 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-        executor: java11
+          executor: j11
