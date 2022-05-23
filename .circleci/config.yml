@@ -1,0 +1,13 @@
+executors:
+  java11: 
+    docker:
+      - image: cimg/openjdk:11.0
+orbs:
+  maven: circleci/maven@1.2.0
+version: 2.1
+
+workflows:
+  maven_test:
+    jobs:
+      - maven/test:
+        executor: java11
