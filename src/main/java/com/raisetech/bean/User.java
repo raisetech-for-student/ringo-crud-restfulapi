@@ -55,25 +55,6 @@ public class User {
 
 	}
 
-	public User userUpdate(User user, String name, LocalDate birthdate) {
-
-		this.name = name;
-		this.birthdate = birthdate;
-		this.updatedAt = LocalDateTime.now();
-		this.updatedBy = "api";
-
-		return user;
-
-	}
-
-	public User userDelete(User user) {
-
-		this.deletedAt = LocalDateTime.now();
-		this.deletedBy = "api";
-
-		return user;
-	}
-
 	public String getId() {
 		return this.id;
 	}
