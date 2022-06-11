@@ -2,16 +2,17 @@ package com.raisetech.bean;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class UserForm {
 
-	// バリデーション未実装
-
-	// @NotBlank
+	@NotBlank
 	private String name;
 
-	// @NotNull
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthdate;
 
