@@ -23,7 +23,7 @@ public class RegisterUserController {
 	private RegisterUserService registerUserService;
 
 	@PostMapping("/users")
-	public ResponseEntity signup(@RequestBody @Valid UserForm form, BindingResult result) {
+	public ResponseEntity signup(@RequestBody @Valid UserForm form, BindingResult bindingResult) {
 
 		this.registerUserService.createUser(form.getName(), form.getBirthdate());
 
