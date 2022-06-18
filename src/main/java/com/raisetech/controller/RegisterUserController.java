@@ -2,7 +2,6 @@ package com.raisetech.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -19,8 +18,11 @@ import com.raisetech.service.RegisterUserService;
 @Validated
 public class RegisterUserController {
 
-	@Autowired
-	private RegisterUserService registerUserService;
+	private final RegisterUserService registerUserService;
+
+	public RegisterUserController(RegisterUserService registerUserService) {
+		this.registerUserService = registerUserService;
+	}
 
 	@PostMapping("/users")
 	public ResponseEntity signup(@RequestBody @Valid UserForm form, BindingResult bindingResult) {
