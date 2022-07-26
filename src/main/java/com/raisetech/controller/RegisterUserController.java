@@ -1,7 +1,5 @@
 package com.raisetech.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -15,7 +13,6 @@ import com.raisetech.response.ResponseMessage;
 import com.raisetech.service.RegisterUserService;
 
 @RestController
-@Validated
 public class RegisterUserController {
 
 	private final RegisterUserService registerUserService;
@@ -25,7 +22,12 @@ public class RegisterUserController {
 	}
 
 	@PostMapping("/users")
-	public ResponseEntity signup(@RequestBody @Valid UserForm form, BindingResult bindingResult) {
+	public ResponseEntity signup(@RequestBody @Validated UserForm form, BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
+
+			return new ResponseEntity(ResponseMessage.newMessage("failed"), HttpStatus.UNPROCESSABLE_ENTITY);
+		}
 
 		this.registerUserService.createUser(form.getName(), form.getBirthdate());
 
