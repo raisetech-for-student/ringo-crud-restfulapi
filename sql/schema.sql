@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS users;
 /* ユーザーテーブル作成 */
-CREATE TABLE user
+CREATE TABLE users
 (
   id CHAR(26) NOT NULL
   ,name VARCHAR(255)  NOT NULL
@@ -15,7 +15,7 @@ CREATE TABLE user
   ,PRIMARY KEY (id)
 );
 
-INSERT INTO user
+INSERT INTO users
 (
   id
   ,name
