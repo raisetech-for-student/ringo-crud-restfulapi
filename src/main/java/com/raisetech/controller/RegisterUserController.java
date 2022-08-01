@@ -29,6 +29,7 @@ public class RegisterUserController {
 			return new ResponseEntity(ResponseMessage.newMessage("failed"), HttpStatus.UNPROCESSABLE_ENTITY);
 		}
 
+
 		this.registerUserService.createUser(form.getName(), form.getBirthdate());
 
 		return new ResponseEntity(ResponseMessage.newMessage("user registerd"), HttpStatus.CREATED);
