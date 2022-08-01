@@ -11,7 +11,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: schema
+      MYSQL_DATABASE: userdb
       MYSQL_USER: user
       MYSQL_PASSWORD: example
     ports:
