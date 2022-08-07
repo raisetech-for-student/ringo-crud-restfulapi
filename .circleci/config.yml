@@ -2,12 +2,34 @@ executors:
   j11: 
     docker:
       - image: cimg/openjdk:11.0
-orbs:
-  maven: circleci/maven@1.2.0
-version: 2.1
 
+version: 2.1
+orbs:
+  slack: circleci/slack@4.9.3
+jobs:
+  notify:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*This is a text notification*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
 workflows:
-  maven_test:
+  send-notification:
     jobs:
-      - maven/test:
-          executor: j11
+      - notify:
+          context: slack-circlecl-ringo
