@@ -15,15 +15,18 @@
 ```
 % docker ps  
 ```
+![](png/SC1.png)
 - MySQLにログイン。passwordはdocker-compose.ymlに記載(example)
 ```
 % docker compose exec db mysql -uroot -p
 ```
+![](png/SC2.png)
 - DBの確認
 ```
 % show databases;
 ```
-- userdbの使用の確認
+![](png/SC3.png)
+- userdbの使用
 ```
 % use userdb;
 ```
@@ -31,10 +34,12 @@
 ```
 % show tables;
 ```
+![](png/SC4.png)
 - レコードの確認
 ```
 % select * from users;  
 ```
+![](png/SC5.png)
 - ログアウト
 ```
 % exit
@@ -47,3 +52,4 @@
 ```
 % docker ps
 ```
+![](png/SC6.png)
