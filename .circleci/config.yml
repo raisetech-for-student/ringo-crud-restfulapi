@@ -16,8 +16,6 @@ workflows:
   slack: circleci/slack@4.9.3
 jobs:
   notify:
-    docker:
-      - image: 'cimg/base:stable'
     steps:
       - slack/notify:
           custom: |
