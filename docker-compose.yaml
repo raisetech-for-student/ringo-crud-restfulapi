@@ -1,10 +1,9 @@
-version: '3.1'
+version: '3.8'
 
 services:
 
   db:
     build: .
-    image: mysql:8.0
     container_name: mysql_ringo
     platform: linux/x86_64
     command: --default-authentication-plugin=mysql_native_password
@@ -18,6 +17,5 @@ services:
       - 3307:3306
     volumes:
       - $PWD/sql:/docker-entrypoint-initdb.d
-      - $PWD/conf/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
 volumes:
   mysql-volume:
