@@ -4,13 +4,10 @@ executors:
       - image: cimg/openjdk:11.0
 orbs:
   maven: circleci/maven@1.2.0
+  slack: circleci/slack@4.1
 version: 2.1
 
-workflows:
-  maven_test:
-    jobs:
-      - maven/test:
-          executor: j11
+jobs:
   notify:
     docker:
       - image: 'cimg/base:stable'
@@ -33,7 +30,14 @@ workflows:
             }
           event: always
 
+workflows:
+  maven_test:
+    jobs:
+      - maven/test:
+          executor: j11
+
   send-notification:
     jobs:
       - notify:
+
           context: slack-circlecl-ringo
