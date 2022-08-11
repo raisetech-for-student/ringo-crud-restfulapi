@@ -13,11 +13,61 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - slack/notify:
-          event: fail
-            template: basic_fail_1
-              - slack/notify:
-                  event: pass
-                  template: success_tagged_deploy_1
+          custom: |
+          [
+  {
+    "type": "header",
+    "text": {
+      "type": "plain_text",
+      "text": "New request"
+    }
+  },
+  {
+    "type": "section",
+    "fields": [
+      {
+        "type": "mrkdwn",
+        "text": "*Type:*\nPaid Time Off"
+      },
+      {
+        "type": "mrkdwn",
+        "text": "*Created by:*\n<example.com|Fred Enriquez>"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "fields": [
+      {
+        "type": "mrkdwn",
+        "text": "*When:*\nAug 10 - Aug 13"
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
+      "text": "<https://example.com|View request>"
+    }
+  }
+]
+
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*ああああああああ*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
 
 workflows:
   maven_test:
