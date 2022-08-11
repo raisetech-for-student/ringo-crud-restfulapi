@@ -14,7 +14,8 @@ jobs:
     steps:
       - slack/notify:
           custom: |
-          [
+            
+            [
   {
     "type": "header",
     "text": {
@@ -52,21 +53,6 @@ jobs:
     }
   }
 ]
-
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "*ああああああああ*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
           event: always
 
 workflows:
