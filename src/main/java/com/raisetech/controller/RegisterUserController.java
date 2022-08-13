@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.raisetech.bean.UserForm;
+import com.raisetech.exception.MyException;
+import com.raisetech.response.ErrorDetail;
 import com.raisetech.response.ResponseMessage;
 import com.raisetech.service.RegisterUserService;
 
@@ -26,7 +28,9 @@ public class RegisterUserController {
 
 		if (bindingResult.hasErrors()) {
 
-			return new ResponseEntity(ResponseMessage.newMessage("failed"), HttpStatus.UNPROCESSABLE_ENTITY);
+			ErrorDetail errorDetail = new ErrorDetail();
+			errorDetail.setDetailMessage("詳細なメッセージ");
+			throw new MyException("MyException 発生", errorDetail);
 		}
 
 
